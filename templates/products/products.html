@@ -10,12 +10,12 @@
             margin-top: 20px;
             flex-wrap: wrap;
         }
-
     </style>
     <div class="products">
         {% for product in products %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
+                    <img class="product_image" src="/media/{{ product.image }}" alt="">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ product.rate }}</h6>
                     <a href="/products/{{ product.id }}" class="card-link">Подробнее</a>

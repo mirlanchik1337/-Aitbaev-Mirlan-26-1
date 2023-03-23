@@ -7,7 +7,11 @@
             margin-left: 10%;
             padding: 10px;
         }
-
+        .product > img {
+            display: block;
+            width: 30%;
+            margin-left: 33%;
+        }
         .dates {
             display: flex;
             justify-content: space-between;
@@ -24,13 +28,13 @@
             margin-bottom: 20px;
             border-radius: 5px;
         }
+
     </style>
     <div class="product_block">
-        <div class="image">
-
-        </div>
         <div class="info">
+            <img class="product_image" src="/media/{{ product.image }}" alt="">
             <h1>{{ product.title }}</h1>
+            
             <h4>{{ product.description }}</h4>
             <h4>Rate: {{ product.rate }}</h4>
             <div class="dates">
