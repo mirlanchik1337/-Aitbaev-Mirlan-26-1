@@ -1,0 +1,35 @@
+.product_block {
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px;
+}
+
+.product > img {
+    display: block;
+    width: 30%;
+    margin-left: 33%;
+}
+
+.dates {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comments {
+    margin-top: 30px;
+}
+
+.comment_block {
+    background: #242b2e;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.description {
+    background-color: #242b2e;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}

@@ -1,5 +1,5 @@
 {% extends 'layouts/index.html' %}
-
+{% load static %}
 {% block content %}
     <style type="text/css">
         .products {
@@ -10,18 +10,28 @@
             margin-top: 20px;
             flex-wrap: wrap;
         }
+        .product_image > img {
+            width: 100%;
+        }
     </style>
     <div class="products">
         {% for product in products %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <img class="product_image" src="/media/{{ product.image }}" alt="">
+                    <div class="image">
+                        {% if product.image %}
+                            <img  style="max-width: 200px" class="product_image" src="/media/{{ product.image }}" alt="">
+                        {% else  %}
+                            <img src="{% static 'img.png'%}" alt="">
+                        {%endif%}
+                    </div>
                     <h5 class="card-title">{{ product.title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ product.rate }}</h6>
+                <div class="rate">
+                    <h6 class="rate">{{ product.rate }}</h6>
+                </div>
                     <a href="/products/{{ product.id }}" class="card-link">Подробнее</a>
                 </div>
             </div>
         {% endfor %}
-
     </div>
 {% endblock %}

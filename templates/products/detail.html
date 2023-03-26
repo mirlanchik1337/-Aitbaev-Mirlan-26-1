@@ -1,41 +1,18 @@
 {% extends 'layouts/index.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet"  href="{% static 'detail.css' %}">
+{% endblock %}
 
 {% block content %}
-    <style type="text/css">
-        .product_block {
-            width: 80%;
-            margin-left: 10%;
-            padding: 10px;
-        }
-        .product > img {
-            display: block;
-            width: 30%;
-            margin-left: 33%;
-        }
-        .dates {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .comments {
-            margin-top: 30px;
-        }
-
-        .comment_block {
-            background: #242b2e;
-            color: #fff;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-    </style>
     <div class="product_block">
         <div class="info">
-            <img class="product_image" src="/media/{{ product.image }}" alt="">
+            <img  style="max-width: 600px " class="product_image" src="/media/{{ product.image }}" alt="">
             <h1>{{ product.title }}</h1>
-            
+        <div class="description">
             <h4>{{ product.description }}</h4>
+        </div>
+
             <h4>Rate: {{ product.rate }}</h4>
             <div class="dates">
                 <p>{{ product.created_date }}</p>
