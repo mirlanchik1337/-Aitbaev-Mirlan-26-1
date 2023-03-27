@@ -9,6 +9,7 @@
             margin-left: 10%;
             margin-top: 20px;
             flex-wrap: wrap;
+            gap: 20px;
         }
         .product_image > img {
             width: 100%;
@@ -16,11 +17,11 @@
     </style>
     <div class="products">
         {% for product in products %}
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem ;">
                 <div class="card-body">
                     <div class="image">
                         {% if product.image %}
-                            <img  style="max-width: 200px" class="product_image" src="/media/{{ product.image }}" alt="">
+                            <img  style="; display: flex ;max-width: 200px; padding-top:50px ; padding-bottom :25px ; padding-right : 25px ; padding-left :25px  " class="product_image" src="/media/{{ product.image }}" alt="">
                         {% else  %}
                             <img src="{% static 'img.png'%}" alt="">
                         {%endif%}
