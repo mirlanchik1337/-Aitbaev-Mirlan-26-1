@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <div class="product_block">
+    <div class="product_block" style="padding: 70px">
         <div class="info">
-            <img style="max-width: 600px " class="product_image" src="/media/{{ product.image }}" alt="">
+            <img style="max-width: 600px ; padding:5cap" class="product_image" src="/media/{{ product.image }}" alt="">
             <div style="background-color:#242b2e; color: white; height: 23px; width: 38px ; margin-top: auto" class="price">
                 <p>{{ product.price }}</p>
             </div>
             <h1>{{ product.title }}</h1>
-            <div class="description">
+            <div class="lol" style="background-color: #242b2e;color: white;margin-bottom: 20px;border-radius: 5px;">
                 <h4>{{ product.description }}</h4>
             </div>
 
@@ -20,6 +20,12 @@
             <div class="dates">
                 <p>{{ product.created_date }}</p>
                 <p>{{ product.modified_date }}</p>
+            <p class="comments_title">Сomments</p>
+            <form action="/products/{{ product.id }}/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Add comment">
+            </form>
             </div>
 
         </div>
