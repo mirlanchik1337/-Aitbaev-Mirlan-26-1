@@ -8,7 +8,8 @@
     <div class="product_block" style="padding: 70px">
         <div class="info">
             <img style="max-width: 600px ; padding:5cap" class="product_image" src="/media/{{ product.image }}" alt="">
-            <div style="background-color:#242b2e; color: white; height: 23px; width: 38px ; margin-top: auto" class="price">
+            <div style="background-color:#242b2e; color: white; height: 23px; width: 38px ; margin-top: auto"
+                 class="price">
                 <p>{{ product.price }}</p>
             </div>
             <h1>{{ product.title }}</h1>
@@ -20,15 +21,22 @@
             <div class="dates">
                 <p>{{ product.created_date }}</p>
                 <p>{{ product.modified_date }}</p>
-            <p class="comments_title">Сomments</p>
-            <form action="/products/{{ product.id }}/" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input style="height: 40px; width: 150px;" type="submit" value="Add comment">
-            </form>
+                <p class="comments_title">Сomments</p>
+
+
             </div>
+            {% if  not user.is_anonymous %}
+                <div class="create_comment">
+                    <form action="/products/{{ product.id }}/" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input style="height: 40px; width: 150px;" type="submit" value="Add comment">
+                    </form>
+                </div>
+            {% endif %}
 
         </div>
+
 
         <div class="comments">
             {% for comment in comments %}
