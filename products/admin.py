@@ -1,6 +1,12 @@
 from django.contrib import admin
-from products.models import Products , Comment
+from products.models import Products, Comment
+
 
 # Register your models here.
-admin.site.register(Products)
+@admin.register(Products)
+class ProductAdmin(admin.ModelAdmin):
+    search_fields = ["title", ]
+    list_display = ["title", "rate", "price"]
+
+
 admin.site.register(Comment)
