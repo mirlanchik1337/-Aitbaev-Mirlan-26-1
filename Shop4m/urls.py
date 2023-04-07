@@ -1,4 +1,4 @@
-"""Shop4m URL Configuration
+"""Shop URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -13,22 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls.static import static
+
 from django.contrib import admin
 from django.urls import path, include
 
 import users
-from products.views import main_page_view, products_view, product_detail_view, create_product_view
+from products.views import MainPageCBV,ProductCBV , ProductDetailCBV, CreateProductCBV
 from Shop4m.settings import MEDIA_URL, MEDIA_ROOT
 from django.conf.urls.static import static
-from users.views import register_view, login_view, logout_view
+from users.views import RegisterCBV, LoginCBV, LogoutCBV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_page_view),
-    path('products/', products_view),
-    path('products/<int:id>/', product_detail_view),
-    path('products/create/', create_product_view),
+    path('', MainPageCBV.as_view()),
+    path('products/',ProductCBV.as_view()),
+    path('products/<int:id>/', ProductDetailCBV.as_view()),
+    path('products/create/',CreateProductCBV.as_view),
 
     path("users/", include("users.urls")),
 
