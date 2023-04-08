@@ -16,11 +16,6 @@ class Products(models.Model):
     def __str__(self):
         return self.title
 
-    class Meta:
-        verbose_name = "Товар"
-        verbose_name_plural = "Товары"
-
-
 class Comment(models.Model):
     text = models.CharField(max_length=255)
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
