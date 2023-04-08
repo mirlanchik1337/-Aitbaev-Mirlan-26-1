@@ -21,14 +21,14 @@ import users
 from products.views import MainPageCBV,ProductCBV , ProductDetailCBV, CreateProductCBV
 from Shop4m.settings import MEDIA_URL, MEDIA_ROOT
 from django.conf.urls.static import static
-from users.views import RegisterCBV, LoginCBV, LogoutCBV
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPageCBV.as_view()),
     path('products/',ProductCBV.as_view()),
     path('products/<int:id>/', ProductDetailCBV.as_view()),
-    path('products/create/',CreateProductCBV.as_view),
+    path('products/create/',CreateProductCBV.as_view()),
 
     path("users/", include("users.urls")),
 

@@ -59,7 +59,6 @@ class ProductDetailCBV(DetailView, CreateView):
         if form.is_valid():
             Comment.objects.create(
                 text=form.cleaned_data.get('text'),
-                rate=form.cleaned_data.get('rate'),
                 product_id=self.get_object().id
             )
             return redirect(f'/products/{self.get_object().id}/')
@@ -90,15 +89,14 @@ class CreateProductCBV(ListView, CreateView):
                 image=form.cleaned_data.get('image'),
                 title=form.cleaned_data.get('title'),
                 description=form.cleaned_data.get('description'),
-                quantity=form.cleaned_data.get('quantity'),
                 price=form.cleaned_data.get('price')
             )
-            return redirect('/products')
+            return redirect('/products/')
 
         return render(request, self.template_name, context=self.get_context_data(
             form=form
         ))
-#
+
 # def create_product_view(request):
 #     if request.method == 'GET':
 #         context = {
